@@ -5,11 +5,17 @@
 >Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorisation.
 
 *(LDAP - Lightweight Directory Access Protocol)*
-In-Band (results visible to hacker on same screen as input), Blind (result not visible but guessable indirectly e.g. from failed pages/response times), Out-of-Band (db forced to make DNS request to hacker's site)
-Example:
+
+**Examples:**
+- In-Band (results visible to hacker on same screen as input)
+- Blind (result not visible but guessable indirectly e.g. from failed pages/response times)
+- Out-of-Band (db forced to make DNS request to hacker's site)
+
+**Code Example:**
 Untrusted user input:
-```java
-String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";
+```ruby
+params[:id] = "1) OR 1=1--"
+User.delete_all("id = #{params[:id]}")
 ```
 
 #### Vulnerabilities
