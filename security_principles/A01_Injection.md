@@ -1,5 +1,7 @@
 ### A01 - Injection
 
+![bobby tables](https://imgs.xkcd.com/comics/exploits_of_a_mom.png)
+
 >Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorisation.
 
 *(LDAP - Lightweight Directory Access Protocol)*
