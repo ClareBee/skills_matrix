@@ -35,3 +35,64 @@ Vulnerable if app:
 - Use server-side, secure, built-in session manager that generates new random session ID ws high entropy after login. Session IDs should not be in the URL, be securely stored and invalidated after logout, idle, and absolute timeouts.
 
 (SIs usu. generated w pseudo-random number generator (PRNG). If a PRNG doesn't yield enough entropy (randomness), susceptible to statistical analysis. If attacker predicts valid session identifier, corresponding session can be immediately hijacked)
+----
+
+### Rails-specific:
+---
+Default Cookie-based session store = no expiry, possibly vuln. to replay attacks
+Sensitive information should never be put in session.
+
+Best practice = database-based session:
+```ruby
+Project::Application.config.session_store :active_record_store
+```
+
+## Auth:
+**Authentication**
+Enable TLS in config:
+```ruby
+# config/environments/production.rb
+# Force all access to the app over SSL, use Strict-Transport-Security,
+# and use secure cookies
+config.force_ssl = true
+```
+Usu w Devise gem
+`$ gem 'devise'`
+`$ rails generate devise:install`
+```ruby
+Rails.application.routes.draw do
+  authenticate :user do
+    resources :something do  # these resource require authentication
+      ...
+    end
+  end
+
+  devise_for :users # sign-up/-in/out routes
+
+  root to: 'static#home' # no authentication required
+end
+```
+Password complexity via zxcvbn gem
+```ruby
+class User < ApplicationRecord
+  devise :database_authenticatable,
+    # other devise features, then
+    :zxcvbnable
+end
+
+# in config/initializers/devise.rb
+Devise.setup do \|config\|
+  # zxcvbn score for devise
+  config.min_password_score = 4 # complexity score here.
+  ...
+```
+Token Authentication possible w devise_token_auth gem w omniauth as dependency:
+```ruby
+# token-based authentication
+$ gem 'devise_token_auth'
+$ gem 'omniauth'
+```
+Then a route is defined:
+`mount_devise_token_auth_for 'User', at: 'auth'`
+or in a one-r
+`$ rails g devise_token_auth:install [USER_CLASS] [MOUNT_PATH]`
