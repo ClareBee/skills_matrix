@@ -5,6 +5,8 @@
 - Based on: [OWASP Risk Rating Methodology](https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology) & aligned with: [Common Weakness Enumeration](https://cwe.mitre.org/)
 - Formalised in: [ASVS Project](https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project)
 
+See also: 7 Pernicious Kingdoms from CWE (Common Weakness Enumeration: https://cwe.mitre.org/data/definitions/700.html)
+
 | 2013                                               | 2017                                             |
 |----------------------------------------------------|--------------------------------------------------|
 | A1 - Injection                                     | A1 - Injection                                   |
