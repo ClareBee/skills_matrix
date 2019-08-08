@@ -48,6 +48,8 @@ Vulnerable if app:
 - SI content -> never include sensitive info & use cryptographic hash eg SHA56
 
 #### Session Management Implementation:
+>Stealing a user's session ID lets an attacker use the web application in the victim's name. - Rails Guide
+
 SMI = SI exchange-mechanism between user + app e.g. cookies (standard HTTP header), URL params, URL args on GET requests, body args on POST requests, such as hidden form fields (HTML forms), or proprietary HTTP headers
 Best practice = include token expiration date/time, usage constraints
 Danger = if ID in URL could disclose session ID (web logs + links/browser history/referrer header/manipulation of ID/session fixation)
