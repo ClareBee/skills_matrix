@@ -66,6 +66,8 @@ Danger = if ID in URL could disclose session ID (web logs + links/browser histor
 *NB - SSL/TLS doesn't protect against SI prediction/brute force/client-side tampering/fixation BUT does protect against disclosure/capture from network traffic*
 
 #### Cookies
+> Another sort of attack you have to be aware of when using CookieStore is the replay attack. Rails Guides => avoided by nonce
+
 **Secure Attribute**
 - instructs web browsers to only send cookie through encrypted HTTPS (SSL/TLS) connection, vs MitM (Man-in-the-Middle) attacks (interception of SI from web browser traffic)
 
@@ -99,6 +101,8 @@ persistent cookie = Max-Age or Expires attributes, stored on disk by  browser un
 ---
 Default Cookie-based session store = no expiry, possibly vuln. to replay attacks
 Sensitive information should never be put in session.
+nonce avoids replay attacks
+reset_session & expiry avoids session fixation
 
 Best practice = database-based session:
 ```ruby

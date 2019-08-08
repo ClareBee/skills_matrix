@@ -11,6 +11,7 @@ Source: https://www.owasp.org/index.php/Injection_Theory
 See Also: https://code.google.com/archive/p/browsersec/
 
 ### Cheatsheets
+Rails Guides: https://guides.rubyonrails.org/security.html
 Reflected/Stored XSS: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 DOM-based XSS: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
 XSS Filter Evasion: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
