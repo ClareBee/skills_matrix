@@ -7,7 +7,7 @@
 [OWASP Top Ten](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_top_ten.md)
 [OWASP Top Ten Proactive Controls](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_proactive_controls.md)
 
----|---
+--- | ---
 1. | [Injection](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/A01_Injection.md)  
 2. | [Broken Authentication](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/A02_Broken_Authentication.md)
 3. | [Sensitive Data Exposure](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/A03_Sensitive_Data_Exposure.md)
