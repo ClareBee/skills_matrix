@@ -61,9 +61,11 @@ centralised?
 - Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems admin privileges, etc.
 
 **Event attributes:**
-when, where, who, what, codes etc
+- when, where, who, what, codes etc
 
 **Exclude:**
-access tokens, source code, sensitive data, session identification values, db connection strings, encryption keys, etc.
+- access tokens, source code, sensitive data, session identification values, db connection strings, encryption keys, etc.
+
 ---
+
 Source: https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html

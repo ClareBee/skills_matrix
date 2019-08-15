@@ -32,7 +32,8 @@ Identity/auth/session management vital. Vulnerable if:
 - Limit/delay failed logins. Log failures & alert admins of attacks
 - Use server-side, secure, built-in session manager that generates new random session ID ws high entropy after login. Session IDs should not be in the URL, be securely stored and invalidated after logout, idle, and absolute timeouts.
 
-(SIs usu. generated w pseudo-random number generator (PRNG). If not enough entropy (randomness), susceptible to statistical analysis. If attacker predicts valid session identifier, corresponding session can be immediately hijacked)
+##### SIs usu. generated w pseudo-random number generator (PRNG). If not enough entropy (randomness), susceptible to statistical analysis. If attacker predicts valid session identifier, corresponding session can be immediately hijacked
+
 ----
 ### Background:
 

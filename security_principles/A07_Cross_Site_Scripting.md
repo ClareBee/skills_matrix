@@ -7,14 +7,14 @@ Based on Injection Theory:
 
 >With Reflected/Stored the attack is injected into the application during server-side processing of requests where untrusted input is dynamically added to HTML. For DOM XSS, the attack is injected into the application during runtime in the client directly.
 
-Source: https://www.owasp.org/index.php/Injection_Theory
-See Also: https://code.google.com/archive/p/browsersec/
+**Source:** https://www.owasp.org/index.php/Injection_Theory
+- See Also: https://code.google.com/archive/p/browsersec/
 
 ### Cheatsheets
-Rails Guides: https://guides.rubyonrails.org/security.html
-Reflected/Stored XSS: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
-DOM-based XSS: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
-XSS Filter Evasion: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+- Rails Guides: https://guides.rubyonrails.org/security.html
+- Reflected/Stored XSS: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+- DOM-based XSS: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
+- XSS Filter Evasion: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
 
 #### Vulnerable?
 
@@ -275,13 +275,13 @@ One example of an attribute which is thought to be safe is innerText, but depend
 Rails 3.0+ protection against XSS comes is default
 - string data in views escaped prior to being sent back to browser
 Rich data override?
-# Wrong! Older rails versions, do not do this!
+##### Wrong! Older rails versions, do not do this!
 `<%= raw @product.name %>`
 
-# Wrong! Newer rails versions, do not do this!
+##### Wrong! Newer rails versions, do not do this!
 `<%= @product.name.html_safe %>`
 
-# Wrong! Newer rails versions, do not do this!
+##### Wrong! Newer rails versions, do not do this!
 `<%= content_tag @product.name %>`
 Any field using `raw`, `html_safe`, `content_tag` etc => potential XSS target.
 
@@ -298,8 +298,9 @@ If @user.website contains a link that starts with javascript:, the content will 
 Newer Rails versions escape such links in a better way.
 
 `link_to "Personal Website", 'javascript:alert(1);'.html_safe()`
-# Will generate:
-# "<a href="javascript:alert(1);">Personal Website</a>"
+##### Will generate:
+ "<a href="javascript:alert(1);">Personal Website</a>"
+
 Using Content Security Policy is one more security measure to forbid execution for links starting with javascript: .
 
 **Brakeman scanner** helps in finding XSS problems in Rails apps.
