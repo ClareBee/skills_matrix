@@ -5,7 +5,7 @@
 - good idea to check following penetration testing!
 >In 2016, identifying a breach took an average of 191 days – plenty of time for damage to be inflicted.
 
-## Vulnerable?
+#### Vulnerable?
 Insufficient logging/detection/monitoring/active response occurs any time:
 
 - Auditable events, such as logins, failed logins, & high-value transactions aren't logged.
@@ -17,7 +17,7 @@ Insufficient logging/detection/monitoring/active response occurs any time:
 - App unable to detect/escalate/alert for active attacks in real time or near real time.
 - Vulnerable to info leakage if logging & alerting events visible to a user or attacker (cf. Sensitive Data Exposure).
 
-## Prevention
+#### Prevention
 - Ensure all login/access control failures/server-side input validation failures logged w sufficient user context to identify suspicious or malicious accounts, & held for sufficient time to allow delayed forensic analysis.
 - Ensure logs generated in format easily consumed by centralised log management solutions.
 - Ensure high-value transactions have audit trail w integrity controls to prevent tampering or deletion, such as append-only database tables or similar.
@@ -25,9 +25,11 @@ Insufficient logging/detection/monitoring/active response occurs any time:
 - Establish or adopt an incident response and recovery plan, such as NIST 800-61 rev 2 or later.
 - Commercial and OS app protection frameworks such as OWASP AppSensor, web app firewalls such as ModSecurity w OWASP ModSecurity Core Rule Set, & log correlation software w custom dashboards & alerting.
 
+___
 Source: https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring
+___
 
-Why log?
+**Why log?**
 - Identify security incidents
 - Monitor policy violations
 - Establish baselines
@@ -35,20 +37,20 @@ Why log?
 - Provide info about problems & unusual conditions
 - Contribute additional app-specific data for incident investigation
 
-Monitoring:
+**Monitoring:**
 - security, business, audit, performance, compliance, GDPR requests etc.
 
-Design/Implementation/Testing
+#### Design/Implementation/Testing
 
-Event data sources:
+**Event data sources:**
 Primarily the app code itself; client software; app firewalls; network firewalls; network & host intrusion detection systems (NIDS and HIDS); database apps; OS monitoring; fraud monitoring etc.
 
-Where to record:
+**Where to record:**
 Usu to separate database/partitioned filesystem
 centralised?
 >Use standard formats over secure protocols to record and send event data, or log files, to other systems e.g. Common Log File System (CLFS) or Common Event Format (CEF) over syslog; standard formats facilitate integration with centralised logging services
 
-Which events:
+**Which events:**
 - Input validation failures e.g. protocol violations, unacceptable encodings, invalid parameter names & values
 - Output validation failures e.g. database record set mismatch, invalid data encoding
 - Authentication successes & failures
@@ -58,10 +60,10 @@ Which events:
 - Application and related systems start-ups and shut-downs, and logging initialisation (starting, stopping or pausing)
 - Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems admin privileges, etc.
 
-Event attributes:
+**Event attributes:**
 when, where, who, what, codes etc
 
-Exclude:
+**Exclude:**
 access tokens, source code, sensitive data, session identification values, db connection strings, encryption keys, etc.
-
+---
 Source: https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html

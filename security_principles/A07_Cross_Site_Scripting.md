@@ -15,7 +15,8 @@ Rails Guides: https://guides.rubyonrails.org/security.html
 Reflected/Stored XSS: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 DOM-based XSS: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
 XSS Filter Evasion: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
-## Vulnerability?
+
+#### Vulnerable?
 
 **Reflected XSS:**
 - app or API includes unvalidated & unescaped user input in HTML output. Attacker could execute arbitrary HTML & JS in victim’s browser. Usu user would need to click some malicious link pointing to attacker-controlled page, e.g. malicious watering hole websites, advertisements, etc.
@@ -26,14 +27,14 @@ XSS Filter Evasion: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_She
 
 e.g. session stealing, account takeover, MFA bypass, DOM node replacement or defacement (such as trojan login panels), attacks vs user's browser, e.g. malicious software downloads, key logging, etc.
 
-## Prevention
+#### Prevention
 - Frameworks automatically escaping XSS by design, e.g. latest Ruby on Rails, React JS, & know limitations
 - Escaping untrusted HTTP request data re: context in HTML output (body, attribute, JavaScript, CSS, or URL) for Reflected and Stored XSS vulnerabilities.
 - Applying context-sensitive encoding when modifying browser document on client side for DOM XSS.
 - Enabling a <u>Content Security Policy (CSP) as a defense-in-depth mitigating control. (Effective if no other vulnerabilities exist that allow placing malicious code via local file includes (e.g. path traversal overwrites or vulnerable libraries from permitted content delivery networks).
 - Use HTTPOnly cookie flag
 - Use the X-XSS-Protection Response Header
-
+___
 Source: https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)
 ___
 Source for the below:
@@ -302,5 +303,7 @@ Newer Rails versions escape such links in a better way.
 Using Content Security Policy is one more security measure to forbid execution for links starting with javascript: .
 
 **Brakeman scanner** helps in finding XSS problems in Rails apps.
+
+____
 
 Source: https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Ruby_on_Rails_Cheatsheet.md

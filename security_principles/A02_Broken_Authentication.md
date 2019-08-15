@@ -1,19 +1,18 @@
-## A02 - Broken Authentication
+### A02 - Broken Authentication
 >Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users' identities temporarily or permanently.
 
-## Threat Agents/Attack Vectors:
+### Threat Agents/Attack Vectors:
 Attackers get username/passwords for credential stuffing (large-scale automated login requests)/ default administrative account lists/ automated brute force/dictionary attack tools
 (* dictionary attack = aka brute force attack technique for defeating a cipher/authentication mechanism by determining decryption key or passphrase by 100s/millions attempts, e.g. words in a dictionary)
 
-## Security Weaknesses
+### Security Weaknesses
 Vulnerability of session management -> session hijacking/sidejacking (via packet sniffer/cookie theft) (targeted eg admin, generic eg avg user)
 
-## Impact
+### Impact
 Potential access to admin account/money laundering/social security fraud/identity theft/sensitive info disclosure
 
-## Assess Vulnerability
-Identity/auth/session management vital
-Vulnerable if app:
+#### Vulnerable?
+Identity/auth/session management vital. Vulnerable if:
 - Permits automated attacks e.g. credential stuffing
 - Permits brute force attacks
 - Permits default/weak/well-known passwords
@@ -24,11 +23,11 @@ Vulnerable if app:
 - Doesn't rotate Session IDs after login
 - Doesn't properly invalidate Session IDs. User sessions or authentication tokens (esp single sign-on (SSO) tokens) aren't properly invalidated during logout or period of inactivity
 
-## Prevention
+#### Prevention
 - MFA vs automated/credential stuffing/brute force/stolen credential re-use attacks
 - Don't ship or deploy w default credentials, esp for admins
 - Check for weak passwords
-- Align password length, complexity & rotation policies with NIST 800-63 B's guidelines,section 5.1.1 Memorized Secrets (National Institute of Standards and Technology, 2017. e.g. min 8, max 64; don't require hints or special rules)
+- Align password length, complexity & rotation policies with NIST 800-63 B's guidelines, section 5.1.1 Memorized Secrets (National Institute of Standards and Technology, 2017. e.g. min 8, max 64; don't require hints or special rules)
 - Ensure registration/credential recovery/API pathways hardened vs account enumeration attacks by using same messages for each
 - Limit/delay failed logins. Log failures & alert admins of attacks
 - Use server-side, secure, built-in session manager that generates new random session ID ws high entropy after login. Session IDs should not be in the URL, be securely stored and invalidated after logout, idle, and absolute timeouts.
@@ -36,7 +35,8 @@ Vulnerable if app:
 (SIs usu. generated w pseudo-random number generator (PRNG). If not enough entropy (randomness), susceptible to statistical analysis. If attacker predicts valid session identifier, corresponding session can be immediately hijacked)
 ----
 ### Background:
-#### Web Session =
+
+#### Web Session
 - sequence of (stateless) network HTTP request and response transactions associated to same user
 - ability to establish variables – e.g. access rights/localization for session duration
 - session ID/token = name:value pair on session creation binds auth credentials (i.e. as a user session) to  user HTTP traffic & appropriate access controls enforced by the app
@@ -58,7 +58,7 @@ Danger = if ID in URL could disclose session ID (web logs + links/browser histor
 - HSTS Protects against active eavesdropping & passive disclosure in network traffic
 - Secure cookie attribute used to ensure session ID only exchanged through encrypted channel
 - Also protects against some session fixation attacks where attacker is able to intercept/manipulate web traffic to inject (or fix) the session ID on victims browser
-- Apps should never switch a given session from HTTP to HTTPS, or viceversa, as this will disclose the session ID in the clear through the network
+- Apps should never switch a given session from HTTP to HTTPS, or vice versa, as this will disclose the session ID in the clear through the network
 - Apps shouldn't mix encrypted + unencrypted contents (HTML pages, images, CSS, Javascript files, etc) on same host/domain, as request of any web object over unencrypted channels might disclose session ID
 - Apps shouldn't offer public unencrypted contents + private encrypted contents from same host (instead e.g. www.example.com over HTTP (unencrypted + port TCP/80) for public contents + secure.example.com over HTTPS (encrypted + port TCP/443) for private/sensitive contents (where sessions exist))
 - Apps should avoid extremely common HTTP to HTTPS redirection on home page (using a 30x HTTP response), as this single unprotected HTTP request/response exchange can be used by an attacker to gather (or fix) a valid session ID
@@ -93,7 +93,6 @@ persistent cookie = Max-Age or Expires attributes, stored on disk by  browser un
 - Ensure secure flag is set to prevent accidental transmission over “the wire” in a non-secure manner
 - Determine if all state transitions in app code properly check for cookies and enforce use
 - Define all cookies being used by the app, their name + why they're needed
-
 
 ----
 ### Rails-specific:

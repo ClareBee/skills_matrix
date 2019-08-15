@@ -2,10 +2,10 @@
 ---
 #### [Security Principles](https://github.com/ClareBee/skills_matrix/tree/master/security_principles)
 
-*(content derived from OWASP & Rails Guides)*
+##### *(content derived from OWASP & Rails Guides)*
 ---
-[OWASP Top Ten](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_top_ten.md)
-[OWASP Top Ten Proactive Controls](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_proactive_controls.md)
+- [OWASP Top Ten](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_top_ten.md)
+- [OWASP Top Ten Proactive Controls](https://github.com/ClareBee/skills_matrix/blob/master/security_principles/OWASP_proactive_controls.md)
 
 |OWASP| Link|
 | --- | ---

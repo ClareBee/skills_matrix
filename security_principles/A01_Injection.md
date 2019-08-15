@@ -18,7 +18,7 @@ params[:id] = "1) OR 1=1--"
 User.delete_all("id = #{params[:id]}")
 ```
 
-#### Vulnerabilities
+#### Vulnerable?
 - user-provided data not sanitised/validated/filtered/restricted
 - dynamic queries (i.e. at runtime rather than at compilation, usu w user input) or non-parameterised calls w/o context-aware escaping used directly in interpreter
 - hostile data used w/in object-relational mapping (ORM) search parameters to extract additional, sensitive records

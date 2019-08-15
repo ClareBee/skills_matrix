@@ -4,7 +4,7 @@
 - common due to the lack of automated detection & effective functional testing
 - best detected by manual testing, including HTTP method (GET vs PUT, etc), controller, direct object references, etc.
 
-## Vulnerable?
+#### Vulnerable?
 - Bypassing access control checks by modifying the URL, internal application state, or HTML page, or simply using a custom API attack tool.
 - Allowing primary key to be changed to another's users record, permitting viewing or editing someone else's account.
 - Elevation of privilege. Acting as a user without being logged in, or acting as an admin when logged in as a user.
@@ -12,7 +12,7 @@
 - CORS misconfiguration allows unauthorised API access.
 - Force browsing to authenticated pages as an unauthenticated user or to privileged pages as a standard user. Accessing API with missing access controls for POST, PUT and DELETE.
 
-## Prevention
+#### Prevention
 - With the exception of public resources, deny by default.
 - Implement access control mechanisms once and re-use them throughout the application, including minimising CORS usage.
 - Model access controls should enforce record ownership
@@ -87,4 +87,6 @@ Source: https://cwe.mitre.org/data/definitions/284.html
 - direct relationship between the user and permission (called a grant), or an indirect one, where permission grant is given to an intermediate entity such as user group (easier to manage for many users who inherit permissions).
 - classes of permissions possible eg document permissions - read/write/delete, server permissions - start/stop/reboot
 
-Source: https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html
+___
+Source:
+- https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html

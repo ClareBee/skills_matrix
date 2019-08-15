@@ -3,7 +3,7 @@
 
 - manual attack usu needed, facilitated by unencrypted data/weak algorithms
 
-## Vulnerability?
+#### Vulnerable?
 - determine protection needs of data in transit + at rest. e.g. passwords/credit card numbers etc. require extra protection, esp if privacy laws, e.g. EU's General Data Protection Regulation (GDPR)/regulations, e.g. financial data protection such as PCI Data Security Standard (PCI DSS).
 
 - Is any data transmitted in clear text? (HTTP, SMTP, and FTP protocols). External internet traffic is esp dangerous. Verify all internal traffic e.g. between load balancers, web servers, or back-end systems.
@@ -12,8 +12,7 @@
 - Is encryption not enforced, e.g. are any user agent (browser) security directives or headers missing?
 - Does the user agent (e.g. app, mail client) not verify if received server certificate is valid?
 
-## Prevention
-
+#### Prevention
 - Classify data processed, stored or transmitted by an app. Identify which data is sensitive acc. to privacy laws, regulatory requirements, or business needs.
 - Apply controls as per classification.
 - Don't store sensitive data unnecessarily. Discard it asap or use PCI DSS compliant tokenization/truncation.
@@ -41,12 +40,12 @@
   - agreement/ability to support a minimum configuration of protocol versions and protocol options for each version)
 Source: https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html
 
-Digital Certificate Pinning
+**Digital Certificate Pinning**
 >Certificate Pinning is the practice of hardcoding or storing a pre-defined set of information (usually hashes) for digital certificates/public keys in the user agent (be it web browser, mobile app or browser plugin) such that only the predefined certificates/public keys are used for secure communication, and all others will fail, even if the user trusted (implicitly or explicitly) the other certificates/public keys.
 
 Source: https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html
 
-Privacy supported by:
+**Privacy supported by:**
   - Strong cryptography (auth, nonrepudiation, confidentiality, integrity)
   - HSTS - HTTP Strict Transport Security
   - Digital Cert Pinning (see above)
@@ -58,19 +57,22 @@ Privacy supported by:
 
 
 ### Rails specific:
-Sensitive Files
-Many Ruby on Rails apps are open source and hosted on publicly available source code repositories. Whether that is the case or the code is committed to a corporate source control system, there are certain files that should be either excluded or carefully managed.
+**Sensitive Files**
+- certain files that should be either excluded or carefully managed.
 
 /config/database.yml                 -  May contain production credentials.
 /config/initializers/secret_token.rb -  Contains a secret used to hash session cookie.
 /db/seeds.rb                         -  May contain seed data including bootstrap admin user.
 /db/development.sqlite3              -  May contain real data.
-Encryption
+**Encryption**
 Rails uses OS encryption. Generally speaking, it is always a bad idea to write your own encryption.
 
 Devise by default uses bcrypt for password hashing, which is an appropriate solution.
 
 Typically, the following config causes the 10 stretches for production: /config/initializers/devise.rb
 
-config.stretches = Rails.env.test? ? 1 : 10
+`config.stretches = Rails.env.test? ? 1 : 10`
+
+___
+
 Source: https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Ruby_on_Rails_Cheatsheet.md

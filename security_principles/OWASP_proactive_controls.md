@@ -10,9 +10,10 @@
 8. Protect Data Everywhere
 9. Implement Security Logging & Monitoring
 10. Handle All Errors & Exceptions
+___
 
 Source: https://www.owasp.org/index.php/OWASP_Proactive_Controls#7:_Protect_Data
 
 
 See also: ASVS https://www.owasp.org/index.php/Category:OWASP_Application_Security_Verification_Standard_Project#tab.3DHome
-OWASP Application Security Verification Standard Project = basis for testing web app technical security controls & requirements for secure dev't.
+- OWASP Application Security Verification Standard Project = basis for testing web app technical security controls & requirements for secure dev't.
