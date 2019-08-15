@@ -95,7 +95,6 @@ persistent cookie = Max-Age or Expires attributes, stored on disk by  browser un
 - Define all cookies being used by the app, their name + why they're needed
 
 
-
 ----
 ### Rails-specific:
 ---
