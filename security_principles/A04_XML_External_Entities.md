@@ -1,13 +1,15 @@
 ### A04 - XML External Entities (XXE)
 >Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks. ie. attack occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser.
 
+[OWASP A04 overview](https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE))
+
 **Definitions**
-**XML** - eXtensible Markup Language (to store/transport data)
-**DTD** - Document Type Definitions (valid building blocks for XML doc)
-**SAML** - Security Assertion Markup Language (exchanging auth data)
-**SOAP** - Simple Object Access Protocol (XML-based messaging protocol between computers)
-**SSO** - Single Sign On
-**WAF** - Web app firewall (filter/monitor/block HTTP traffic)
+- **XML** - eXtensible Markup Language (to store/transport data)
+- **DTD** - Document Type Definitions (valid building blocks for XML doc)
+- **SAML** - Security Assertion Markup Language (exchanging auth data)
+- **SOAP** - Simple Object Access Protocol (XML-based messaging protocol between computers)
+- **SSO** - Single Sign On
+- **WAF** - Web app firewall (filter/monitor/block HTTP traffic)
 
 #### Vulnerable?
 - App accepts XML directly or XML uploads, esp from untrusted sources, or inserts untrusted data into XML documents, parsed by XML processor.

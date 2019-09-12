@@ -1,6 +1,8 @@
 ### A09 - Using Components With Known Vulnerabilities
 >Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defences and enable various attacks and impacts.
 
+[OWASP A09 overview](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities)
+
 #### Vulnerable?
 - If you don't know versions of all components used (client-side & server-side) - direct use/nested dependencies
 - If software is vulnerable/unsupported/out of date. Incl. OS, web/app server, DB management system (DBMS), APIs & all components, runtime environments, & libraries.

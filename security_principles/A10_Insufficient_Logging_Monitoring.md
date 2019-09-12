@@ -1,13 +1,13 @@
 ### A10 - Insufficient Logging and Monitoring
 >Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.
 
-- included in OWASP Top 10 re: industry survey.
-- good idea to check following penetration testing!
+[OWASP A10 overview](https://www.owasp.org/index.php/Top_10-2017_A10-Insufficient_Logging%26Monitoring)
+
+- Included in OWASP Top 10 re: industry survey.
+- Good idea to check following penetration testing!
 >In 2016, identifying a breach took an average of 191 days – plenty of time for damage to be inflicted.
 
 #### Vulnerable?
-Insufficient logging/detection/monitoring/active response occurs any time:
-
 - Auditable events, such as logins, failed logins, & high-value transactions aren't logged.
 - Warnings & errors generate no/inadequate/unclear log msgs.
 - Logs of apps & APIs aren't monitored for suspicious activity.
@@ -38,12 +38,12 @@ ___
 - Contribute additional app-specific data for incident investigation
 
 **Monitoring:**
-- security, business, audit, performance, compliance, GDPR requests etc.
+- Security, business, audit, performance, compliance, GDPR requests etc.
 
 #### Design/Implementation/Testing
 
 **Event data sources:**
-Primarily the app code itself; client software; app firewalls; network firewalls; network & host intrusion detection systems (NIDS and HIDS); database apps; OS monitoring; fraud monitoring etc.
+Primarily app code itself; client software; app firewalls; network firewalls; network & host intrusion detection systems (NIDS and HIDS); database apps; OS monitoring; fraud monitoring etc.
 
 **Where to record:**
 Usu to separate database/partitioned filesystem
@@ -61,10 +61,10 @@ centralised?
 - Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems admin privileges, etc.
 
 **Event attributes:**
-- when, where, who, what, codes etc
+- When, where, who, what, codes etc
 
 **Exclude:**
-- access tokens, source code, sensitive data, session identification values, db connection strings, encryption keys, etc.
+- Access tokens, source code, sensitive data, session identification values, db connection strings, encryption keys, etc.
 
 ---
 

@@ -2,6 +2,8 @@
 **Note**: Most common issue in OWASP Top Ten
 >XSS flaws occur whenever an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.
 
+[OWASP A07 overview](https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS))
+
 Based on Injection Theory:
 >Injection is an attacker's attempt to send data to an application in a way that will change the meaning of commands being sent to an interpreter.
 
@@ -19,7 +21,7 @@ Based on Injection Theory:
 #### Vulnerable?
 
 **Reflected XSS:**
-- app or API includes unvalidated & unescaped user input in HTML output. Attacker could execute arbitrary HTML & JS in victim’s browser. Usu user would need to click some malicious link pointing to attacker-controlled page, e.g. malicious watering hole websites, advertisements, etc.
+- App or API includes unvalidated & unescaped user input in HTML output. Attacker could execute arbitrary HTML & JS in victim’s browser. Usu user would need to click some malicious link pointing to attacker-controlled page, e.g. malicious watering hole websites, advertisements, etc.
 **Stored XSS:**
 - App or API stores unsanitised user input viewed later by another user/admin. Usu. a critical risk.
 **DOM XSS:**
@@ -217,27 +219,27 @@ If you want to use user input to write in a div tag element don’t use innerHtm
 ### **Guidelines for Developing Secure Applications Utilising JavaScript**
 -difficult re: large attack surface & lack of standardisation across browsers.
 
-1. - Untrusted data should only be treated as displayable text
+1. Untrusted data should only be treated as displayable text
 
-2. - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated Javascript
+2. Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated Javascript
 
-3. - `document.createElement("...")`, `element.setAttribute("...","value")`, `element.appendChild(...)` and similar are safe ways to build dynamic interfaces.
+3. `document.createElement("...")`, `element.setAttribute("...","value")`, `element.appendChild(...)` and similar are safe ways to build dynamic interfaces.
 
 Please note, `element.setAttribute` is only safe for a limited number of attributes. Dangerous attributes include any attribute that is a command execution context, such as `onclick` or `onblur`.
 
 Examples of SAFE attributes includes: align, alink, alt, bgcolor, border, cellpadding, cellspacing, class, color, cols, colspan, coords, dir, face, height, hspace, ismap, lang, marginheight, marginwidth, multiple, nohref, noresize, noshade, nowrap, ref, rel, rev, rows, rowspan, scrolling, shape, span, summary, tabindex, title, usemap, valign, value, vlink, vspace, width.
 
-4. - Avoid sending untrusted data into HTML rendering methods
+4. Avoid sending untrusted data into HTML rendering methods
 element.innerHTML = "...";/element.outerHTML = "...";
 document.write(...);/document.writeln(...);
 
-5. - Avoid methods which implicitly eval() data passed to it
+5. Avoid methods which implicitly eval() data passed to it
 Make sure that any untrusted data passed to these methods is:
 Delimited with string delimiters/ Enclosed within a closure/ JavaScript encoded to N-levels based on usage/ Wrapped in a custom function.
 
 >An important implementation note is that if the JavaScript code tries to utilise the double or triple encoded data in string comparisons, the value may be interpreted as different values based on the number of evals() the data has passed through.
 
-6. - Limit the usage of untrusted data to only right side operations
+6. Limit the usage of untrusted data to only right side operations
 Instead of:
 window[userData] = "moreUserData";
 Do the following instead:
@@ -246,13 +248,13 @@ if (userData === "location") {
    window.location = "static/path/or/properly/url/encoded/value";
 }
 ```
-7. - When URL encoding in DOM be aware of character set issues
+7. When URL encoding in DOM be aware of character set issues
 
-8. - Limit access to properties objects when using object[x] accessors
+8. Limit access to properties objects when using object[x] accessors
 
-9. - Run your JavaScript in a ECMAScript 5 canopy or sandbox
+9. Run your JavaScript in a ECMAScript 5 canopy or sandbox
 
-10. - Don’t eval() JSON to convert it to native JavaScript objects.
+10. Don’t eval() JSON to convert it to native JavaScript objects.
 
 ### Common Problems Associated with Mitigating DOM Based XSS
 - Complex Contexts
@@ -301,7 +303,7 @@ Newer Rails versions escape such links in a better way.
 ##### Will generate:
  "<a href="javascript:alert(1);">Personal Website</a>"
 
-Using Content Security Policy is one more security measure to forbid execution for links starting with javascript: .
+Using Content Security Policy is one more security measure to forbid execution for links starting with javascript
 
 **Brakeman scanner** helps in finding XSS problems in Rails apps.
 

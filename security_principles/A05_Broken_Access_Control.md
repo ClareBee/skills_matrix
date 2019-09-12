@@ -1,11 +1,13 @@
 ### A05 - Broken Access Control
 >Restrictions on what authenticated users are allowed to do are often not properly enforced. Attackers can exploit these flaws to access unauthorised functionality and/or data, such as access other users' accounts, view sensitive files, modify other users' data, change access rights, etc.
 
-- common due to the lack of automated detection & effective functional testing
-- best detected by manual testing, including HTTP method (GET vs PUT, etc), controller, direct object references, etc.
+[OWASP A05 overview](https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control)
+
+- Common due to the lack of automated detection & effective functional testing
+- Best detected by manual testing, including HTTP method (GET vs PUT, etc), controller, direct object references, etc.
 
 #### Vulnerable?
-- Bypassing access control checks by modifying the URL, internal application state, or HTML page, or simply using a custom API attack tool.
+- Bypassing access control checks by modifying URL, internal application state, or HTML page, or using custom API attack tool.
 - Allowing primary key to be changed to another's users record, permitting viewing or editing someone else's account.
 - Elevation of privilege. Acting as a user without being logged in, or acting as an admin when logged in as a user.
 - Metadata manipulation, such as replaying or tampering with a JSON Web Token (JWT) access control token or a cookie or hidden field manipulated to elevate privileges, or abusing JWT invalidation
@@ -25,9 +27,9 @@
 Source: https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control
 
 Access control involves the use of several protection mechanisms such as:
-- Authentication (proving the identity of an actor)
-- Authorisation (ensuring that a given actor can access a resource), and
-- Accountability (tracking of activities that were performed)
+- **Authentication** (proving the identity of an actor)
+- **Authorisation** (ensuring that a given actor can access a resource), and
+- **Accountability** (tracking of activities that were performed)
 Source: https://cwe.mitre.org/data/definitions/284.html
 
 
@@ -50,7 +52,7 @@ Source: https://cwe.mitre.org/data/definitions/284.html
 - Assurance for RBAC must be carried out using strict access control review
 
 ### Discretionary Access Control (DAC)
-- based on the identity of users and/or membership in certain groups. Access decisions are typically based on authorisations granted to user based on the credentials (user name, password, hardware/software token, etc.) Usu owner of info or any resource is able to change its permissions at her discretion
+- Based on the identity of users and/or membership in certain groups. Access decisions are typically based on authorisations granted to user based on the credentials (user name, password, hardware/software token, etc.) Usu owner of info or any resource is able to change its permissions at her discretion
 
 **Pros:**
 - Easy to use & administer
@@ -64,10 +66,10 @@ Source: https://cwe.mitre.org/data/definitions/284.html
 - Tendency for scope creep to happen e.g. more accesses and privileges can be given than intended for.
 
 **Note:**
--Assurance for DAC must be carried out using strict access control reviews.
+- Assurance for DAC must be carried out using strict access control reviews.
 
 ## Mandatory Access Control (MAC)
-- ensures that the enforcement of organisational security policy does not rely on voluntary web app user compliance. MAC secures info by assigning sensitivity labels on info and comparing this to the level of sensitivity a user is operating at. MAC is usually appropriate for extremely secure systems including multilevel secure military applications or mission critical data applications.
+- Ensures that the enforcement of organisational security policy does not rely on voluntary web app user compliance. MAC secures info by assigning sensitivity labels on info and comparing this to the level of sensitivity a user is operating at. MAC is usually appropriate for extremely secure systems including multilevel secure military applications or mission critical data applications.
 
 **Pros:**
 - Access based on sensitivity of object
@@ -82,10 +84,10 @@ Source: https://cwe.mitre.org/data/definitions/284.html
 - Assurance for MAC must ensure classification of objects is at appropriate level.
 
 ### Permission Based Access Control
-- abstraction of application actions into a set of permissions e.g. string based name, "READ". Access decisions made by checking if current user has permission associated w requested application action.
+- Abstraction of application actions into a set of permissions e.g. string based name, "READ". Access decisions made by checking if current user has permission associated w requested application action.
 
-- direct relationship between the user and permission (called a grant), or an indirect one, where permission grant is given to an intermediate entity such as user group (easier to manage for many users who inherit permissions).
-- classes of permissions possible eg document permissions - read/write/delete, server permissions - start/stop/reboot
+- Direct relationship between the user and permission (called a grant), or an indirect one, where permission grant is given to an intermediate entity such as user group (easier to manage for many users who inherit permissions).
+- Classes of permissions possible eg document permissions - read/write/delete, server permissions - start/stop/reboot
 
 ___
 Source:

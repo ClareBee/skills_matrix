@@ -4,6 +4,8 @@
 
 >Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorisation.
 
+[OWASP A01 overview](https://www.owasp.org/index.php/Top_10-2017_A1-Injection)
+
 *(LDAP - Lightweight Directory Access Protocol)*
 
 **Examples:**
@@ -49,7 +51,7 @@ Model.where("login = ? AND password = ?", entered_user_name, entered_password).f
 >Note: SQL structure such as table names, column names, and so on cannot be escaped, and thus user-supplied structure names are dangerous. This is a common issue in report-writing software.
 >The OWASP Enterprise Security API (ESAPI) is a free, open source, web application security control library that makes it easier for programmers to write lower-risk applications.
 
->Ruby on Rails has a built-in filter for special SQL characters, which will escape ' , " , NULL character and line breaks. Using Model.find(id) or Model.find_by_some thing(something) automatically applies this countermeasure. But in SQL fragments, especially in conditions fragments (where("...")), the connection.execute() or Model.find_by_sql() methods, it has to be applied manually.
+>Ruby on Rails has a built-in filter for special SQL characters, which will escape ' , " , NULL character and line breaks. Using Model.find(id) or Model.find_by_some thing(something) automatically applies this countermeasure. But in SQL fragments, especially in conditions fragments (where("...")), the connection.execute() or Model.find_by_sql() methods, it has to be applied manually. - https://guides.rubyonrails.org/security.html
 
 - Use LIMIT + other SQL controls w/in queries to prevent mass disclosure of records
 - Principle of Least Privilege (PoLP)- restrict access rights to bare minimum needed

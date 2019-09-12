@@ -1,8 +1,13 @@
 ### A02 - Broken Authentication
 >Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users' identities temporarily or permanently.
 
+[OWASP A02 overview](https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication)
+
 ### Threat Agents/Attack Vectors:
-Attackers get username/passwords for credential stuffing (large-scale automated login requests)/ default administrative account lists/ automated brute force/dictionary attack tools
+Attackers get username/passwords for
+- credential stuffing (large-scale automated login requests)
+- default administrative account lists
+- automated brute force/dictionary attack tools
 (* dictionary attack = aka brute force attack technique for defeating a cipher/authentication mechanism by determining decryption key or passphrase by 100s/millions attempts, e.g. words in a dictionary)
 
 ### Security Weaknesses
@@ -27,10 +32,10 @@ Identity/auth/session management vital. Vulnerable if:
 - MFA vs automated/credential stuffing/brute force/stolen credential re-use attacks
 - Don't ship or deploy w default credentials, esp for admins
 - Check for weak passwords
-- Align password length, complexity & rotation policies with NIST 800-63 B's guidelines, section 5.1.1 Memorized Secrets (National Institute of Standards and Technology, 2017. e.g. min 8, max 64; don't require hints or special rules)
+- Align password length, complexity & rotation policies with NIST 800-63 B's guidelines, section 5.1.1 Memorised Secrets (National Institute of Standards and Technology, 2017. e.g. min 8, max 64; don't require hints or special rules)
 - Ensure registration/credential recovery/API pathways hardened vs account enumeration attacks by using same messages for each
 - Limit/delay failed logins. Log failures & alert admins of attacks
-- Use server-side, secure, built-in session manager that generates new random session ID ws high entropy after login. Session IDs should not be in the URL, be securely stored and invalidated after logout, idle, and absolute timeouts.
+- Use server-side, secure, built-in session manager that generates new random session ID w high entropy after login. Session IDs shouldn't be in URL, be securely stored & invalidated after logout/idle/absolute timeouts.
 
 ##### SIs usu. generated w pseudo-random number generator (PRNG). If not enough entropy (randomness), susceptible to statistical analysis. If attacker predicts valid session identifier, corresponding session can be immediately hijacked
 
@@ -38,9 +43,9 @@ Identity/auth/session management vital. Vulnerable if:
 ### Background:
 
 #### Web Session
-- sequence of (stateless) network HTTP request and response transactions associated to same user
-- ability to establish variables – e.g. access rights/localization for session duration
-- session ID/token = name:value pair on session creation binds auth credentials (i.e. as a user session) to  user HTTP traffic & appropriate access controls enforced by the app
+- sequence of (stateless) network HTTP request & response transactions associated to same user
+- ability to establish variables – e.g. access rights/localisation for session duration
+- session ID/token = name:value pair on session creation binds auth credentials (i.e. as a user session) to  user HTTP traffic & appropriate access controls enforced by app
 
 #### Session ID cont.
 - SI fingerprinting -> rename default to id (as common SI names easily fingerprinted)
@@ -86,8 +91,8 @@ Danger = if ID in URL could disclose session ID (web logs + links/browser histor
 *Cookies vulnerable to DNS spoofing/hijacking/poisoning attacks, where an attacker can manipulate the DNS resolution to force browser to disclose session ID for a given host/domain.*
 
 **Expire and Max-Age Attributes**
-- non-persistent (or session) cookies + persistent cookies.
-persistent cookie = Max-Age or Expires attributes, stored on disk by  browser until expiration time.
+- Non-persistent (or session) cookies + persistent cookies.
+Persistent cookie = Max-Age or Expires attributes, stored on disk by  browser until expiration time.
 - Tracking users after auth usu. via non-persistent = forces session closure on browser closure (vs cached)
 - Ensure sensitive info encrypted/not persisted/stored on a need basis for as short a time as poss.
 - Ensure that unauthorised activities impossible via cookie manipulation

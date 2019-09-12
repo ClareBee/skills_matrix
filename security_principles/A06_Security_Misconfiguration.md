@@ -1,7 +1,9 @@
 ### A06 - Security Misconfiguration
 >Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.
 
-Security misconfiguration can happen at any level of an app stack, incl network services, platform, web server, application server, db, frameworks, custom code, & pre-installed virtual machines, containers, or storage.
+[OWASP A06 overview](https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration)
+
+Security misconfiguration can happen at any level, incl network services, platform, web server, application server, db, frameworks, custom code, & pre-installed virtual machines, containers, or storage.
 Automated scanners useful for detecting misconfigurations, use of default accounts or configurations, unnecessary services, legacy options, etc.
 
 #### Vulnerable?
