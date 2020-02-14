@@ -1,6 +1,8 @@
 # A11y
+
 Based on https://developers.google.com/web/fundamentals/accessibility
 
+-----
 ### Contents:
 - [WCAG & WebAIM guidelines](accessibility-topics/WCAG-guidelines.md)
 - [Focus](accessiblity-topics/focus.md)
@@ -8,12 +10,20 @@ Based on https://developers.google.com/web/fundamentals/accessibility
 - [ARIA](accessibility-topics/ARIA.md)
 - [Styling](accessibility-topics/styling.md)
 
+------
 
-#### Situational
-#### Temporary
-#### Permanent
+### Disabilities
+- Situational
+- Temporary
+- Permanent
 
 - visual impairments, sight, colour-blindness: red/green, blue/yellow
 - motor/dexterity impairments
 - hearing impairments
 - cognitive impairments
+
+### Inclusive Design
+- Recognise exclusion:
+- Solve for one, extend to many.
+- Learn from diversity.
+
