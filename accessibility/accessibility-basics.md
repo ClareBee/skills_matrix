@@ -5,8 +5,8 @@ Based on https://developers.google.com/web/fundamentals/accessibility
 - [WCAG & WebAIM guidelines](accessibility-topics/WCAG-guidelines.md)
 - [Focus](accessiblity-topics/focus.md)
 - [Semantics](accessibility-topics/semantics.md)
-- [ARIA]('accessibility-topics/ARIA.md')
-- [Styling]('accessibility-topics/styling.md')
+- [ARIA](accessibility-topics/ARIA.md)
+- [Styling](accessibility-topics/styling.md)
 
 
 #### Situational
