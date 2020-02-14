@@ -1,13 +1,12 @@
 # A11y
 Based on https://developers.google.com/web/fundamentals/accessibility
 
-Contents:
-
-[WCAG & WebAIM guidelines]('./WCAG-guidelines.md')
-[Focus]('./focus.md')
-[Semantics]('./semantics.md')
-[ARIA]('./ARIA.md')
-[Styling]('./styling.md')
+### Contents:
+- [WCAG & WebAIM guidelines](accessibility-topics/WCAG-guidelines.md)
+- [Focus](accessiblity-topics/focus.md)
+- [Semantics](accessibility-topics/semantics.md)
+- [ARIA]('accessibility-topics/ARIA.md')
+- [Styling]('accessibility-topics/styling.md')
 
 
 #### Situational
