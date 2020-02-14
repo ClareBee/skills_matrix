@@ -2,7 +2,8 @@
 Based on https://developers.google.com/web/fundamentals/accessibility
 
 Contents:
-[WCAG & WebAIM guildlines]('./WCAG-guidelines.md')
+
+[WCAG & WebAIM guidelines]('./WCAG-guidelines.md')
 [Focus]('./focus.md')
 [Semantics]('./semantics.md')
 [ARIA]('./ARIA.md')
