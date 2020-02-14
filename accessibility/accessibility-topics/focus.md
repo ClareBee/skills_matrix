@@ -48,6 +48,7 @@ tabindex attribute = applicable to any html element (but really only interactive
     Hot Chocolate
   </div>
 </div>
+
 ```html
 <div role="radiogroup"
      aria-labelledby="group_label_1"
@@ -68,8 +69,10 @@ tabindex attribute = applicable to any html element (but really only interactive
     Hot Chocolate
   </div>
 </div>
+
 ```
---
+
+-----
 ### Losing focus:
 - if you 'lose' where the focus is (e.g. could be off screen), use DevTools & log document active element: `document.activeElement`
 - or use Chrome extension - accessibility audit
